@@ -16,8 +16,9 @@ bot.on('start', ()=>{
     read in local joke files and store jokes in an array 
 */
 const fs = require('fs');
-let mamaJokes = fs.readFileSync('yomama.txt').toString().split("\n");
-let computerJokes = fs.readFileSync('computerjokes.txt').toString().split("\n");
+let mamaJokes = fs.readFileSync('yomama-jokes.txt').toString().split("\n");
+let computerJokes = fs.readFileSync('computer-jokes.txt').toString().split("\n");
+let insults = fs.readFileSync('insults.txt').toString().split("\n");
 
 /*
     checks for joke commands, if found, tell a joke
@@ -30,10 +31,15 @@ bot.on('message', msg=>{
         msg.reply(mamaJokes[joke]);
     }
     // send a computer joke
-    else if (msg.content === "computer-joke"){
+    else if(msg.content === "computer-joke"){
         joke = Math.floor(Math.random() * 170);
         msg.reply(computerJokes[joke]);
-    }  
+    } 
+    // send a insult
+    else if(msg.content === "insult"){
+        joke = Math.floor(Math.random() * 351);
+        msg.reply(insults[joke]);
+    }
 })
 
 /*
