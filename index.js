@@ -25,12 +25,12 @@ let computerJokes = fs.readFileSync('computerjokes.txt').toString().split("\n");
 bot.on('message', msg=>{
     // send a yo mama joke 
     let joke;
-    if(msg.content === "yomama"){
+    if(msg.content === "yo-mama"){
         joke = Math.floor(Math.random() * 1041);
         msg.reply(mamaJokes[joke]);
     }
     // send a computer joke
-    else if (msg.content === "computerjoke"){
+    else if (msg.content === "computer-joke"){
         joke = Math.floor(Math.random() * 170);
         msg.reply(computerJokes[joke]);
     }  
