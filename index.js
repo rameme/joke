@@ -24,13 +24,14 @@ let computerJokes = fs.readFileSync('computerjokes.txt').toString().split("\n");
 */
 bot.on('message', msg=>{
     // send a yo mama joke 
+    let joke;
     if(msg.content === "yomama"){
-        let joke = Math.floor(Math.random() * 1041);
+        joke = Math.floor(Math.random() * 1041);
         msg.reply(mamaJokes[joke]);
     }
     // send a computer joke
     else if (msg.content === "computerjoke"){
-        let joke = Math.floor(Math.random() * 170);
+        joke = Math.floor(Math.random() * 170);
         msg.reply(computerJokes[joke]);
     }  
 })
